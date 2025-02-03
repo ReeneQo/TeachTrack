@@ -1,7 +1,7 @@
 import { Webhook } from 'lucide-react';
 import { useState, ReactNode } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Home, Users, MessageSquare, User } from 'lucide-react';
+import { Menu, X, Home, Users, User } from 'lucide-react';
 import PageTranstion from '../PageTransition/PageTransition'
 
 export function Header(){
@@ -17,7 +17,6 @@ export function Header(){
     const navigation: User[] = [
           { name: 'Главная', href: '/', icon: <Home className='w-5 h-5 mr-2'/> },
           { name: 'О нас', href: '/about', icon: <Users className='w-5 h-5 mr-2'/> },
-          { name: 'Отзывы', href: '/reviews', icon: <MessageSquare className='w-5 h-5 mr-2'/> },
           { name: 'Личный кабинет', href: '/profile', icon: <User className='w-5 h-5 mr-2'/> },
     ];
 

@@ -1,45 +1,51 @@
 import "./App.css";
-import React from "react";
+// import React from "react";
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Routes,
   Route,
-  useLocation,
 } from "react-router-dom";
-import { Header } from "./components/navigation/Navigation";
-import { Home } from "./components/pages/Home";
 import { About } from "./components/pages/AboutUs";
-import { Reviews } from "./components/pages/Reviews";
 import { Profile } from "./components/pages/Profile";
 import { AnimatePresence } from "framer-motion";
+import { Toaster } from "./components/elements/Toaster";
+import { Toaster as Sonner } from "./components/elements/sonnet";
+import { TooltipProvider } from "./components/elements/tooltip";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+import Index from "./components/pages/index";
+import Lesson from "./components/pages/Lesson";
+import NotFound from "./components/pages/NotFound";
+
+
 function AnimatedRoutes() {
-  const location = useLocation();
+  
 
   return (
     <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/reviews" element={<Reviews />} />
-        <Route path="/profile" element={<Profile />} />
-      </Routes>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/lesson/:id" element={<Lesson />} />
+          <Route path="*" element={<NotFound />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/profile" element={<Profile />} />
+        </Routes>
+      </BrowserRouter>
     </AnimatePresence>
   );
 }
 
-const App: React.FC = () => {
-  return (
-    <>
-      <Router>
-        <div className="min-h-screen bg-gray-50">
-          <Header />
-          <main className="container mx-auto px-4 py-8">
-            <AnimatedRoutes />
-          </main>
-        </div>
-      </Router>
-    </>
-  );
-};
+const queryClient = new QueryClient();
+
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <AnimatedRoutes/>
+    </TooltipProvider>
+  </QueryClientProvider>
+);
 
 export default App;

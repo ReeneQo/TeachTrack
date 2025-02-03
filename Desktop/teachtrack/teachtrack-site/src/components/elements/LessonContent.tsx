@@ -8,17 +8,18 @@ interface LessonContentProps {
   isCompleted: boolean;
 }
 
-export function LessonContent({ lesson, onComplete, isCompleted }: LessonContentProps) {
-
-    const navigate = useNavigate();
-
-    const handleComplete = () => {
+export function LessonContent({
+  lesson,
+  onComplete,
+  isCompleted,
+}: LessonContentProps) {
+  const navigate = useNavigate();
+  const handleComplete = () => {
     if (onComplete) {
-        onComplete(); 
+      onComplete();
     }
-    navigate('/'); 
-    };
-
+    navigate("/");
+  };
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -26,9 +27,7 @@ export function LessonContent({ lesson, onComplete, isCompleted }: LessonContent
       className="max-w-3xl mx-auto p-6"
     >
       <h1 className="text-3xl font-bold mb-6">{lesson.title}</h1>
-      <div className="prose prose-gray max-w-none mb-8">
-        {lesson.content}
-      </div>
+      <div className="prose prose-gray max-w-none mb-8">{lesson.content}</div>
       {!isCompleted && (
         <Button
           onClick={handleComplete}

@@ -1,7 +1,11 @@
+import PageTranstion from "../PageTransition/PageTransition"
+import {Title} from '../elements/mainTitle'
 export function Home() {
     return(
         <>
-        <h1>Главная</h1>
+        <PageTranstion>
+            <Title/>
+        </PageTranstion>
         </>
     )
 }

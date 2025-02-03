@@ -1,7 +1,11 @@
+import PageTranstion from '../PageTransition/PageTransition'
+
 export function About() {
     return(
         <>
-        <h1>О нас</h1>
+        <PageTranstion>
+            <h1>О нас</h1>
+        </PageTranstion>
         </>
     )
 }

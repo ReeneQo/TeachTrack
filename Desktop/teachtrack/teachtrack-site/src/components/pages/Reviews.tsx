@@ -1,7 +1,11 @@
+import PageTranstion from "../PageTransition/PageTransition"
+
 export function Reviews() {
     return(
         <>
-        <h1>Отзывы</h1>
+        <PageTranstion>
+            <h1>Отзывы</h1>
+        </PageTranstion>
         </>
     )
 }

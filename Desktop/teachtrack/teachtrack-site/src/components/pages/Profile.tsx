@@ -1,7 +1,11 @@
+import PageTranstion from '../PageTransition/PageTransition'
+
 export function Profile() {
     return(
         <>
-        <h1>Profile</h1>
+        <PageTranstion>
+            <h1>Profile</h1>
+        </PageTranstion>
         </>
     )
 }

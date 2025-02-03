@@ -2,7 +2,7 @@ import { Webhook } from 'lucide-react';
 import { useState, ReactNode } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Home, Users, MessageSquare, User } from 'lucide-react';
-
+import PageTranstion from '../PageTransition/PageTransition'
 
 export function Header(){
     const [isOpen, setIsOpen] = useState(false);
@@ -25,6 +25,7 @@ export function Header(){
 
     return (
         <>
+        <PageTranstion>
         <header className="w-full flex justify-between p-5 items-center bg-white shadow-lg" >
             <Link to='/ 'className="text-3xl flex items-center duration-300 transition-all ease hover:text-4xl cursor-pointer hover:text-blue-500">
             <Webhook className='w-10 h-10 mr-3'/>FrontendSchool
@@ -76,6 +77,7 @@ export function Header(){
             </div>
           )}
           </header>
+          </PageTranstion>
         </>
     )
 }

@@ -6,7 +6,6 @@ import {
   Route,
 } from "react-router-dom";
 import { About } from "./components/pages/AboutUs";
-import { Profile } from "./components/pages/Profile";
 import { AnimatePresence } from "framer-motion";
 import { Toaster } from "./components/elements/Toaster";
 import { Toaster as Sonner } from "./components/elements/sonnet";
@@ -29,7 +28,6 @@ function AnimatedRoutes() {
           <Route path="/lesson/:id" element={<Lesson />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/about" element={<About />} />
-          <Route path="/profile" element={<Profile />} />
         </Routes>
       </BrowserRouter>
     </AnimatePresence>

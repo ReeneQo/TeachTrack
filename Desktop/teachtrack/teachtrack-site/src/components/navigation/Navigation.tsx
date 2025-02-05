@@ -1,6 +1,6 @@
 import { Webhook } from "lucide-react";
-import { useState, ReactNode } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useState, ReactNode, useEffect } from "react";
+import { Link, useLocation, useSearchParams } from "react-router-dom";
 import { Menu, X, Home, Users } from "lucide-react";
 import PageTranstion from "../PageTransition/PageTransition";
 import { SignedIn, SignedOut, SignIn, UserButton } from "@clerk/clerk-react";
@@ -22,6 +22,21 @@ export function Header() {
   ];
 
   const isActive = (path: string) => location.pathname === path;
+
+  const [search, setSearch] = useSearchParams()
+
+  useEffect(()=>{
+    if (search.get("sign-in")) {
+        setShowSignIn(true);
+    }
+  }, [search])
+
+  const handleOverlayClick=(e: any)=>{
+    if (e.target === e.currentTarget) {
+        setShowSignIn(false)
+        setSearch({})
+    }
+  }
 
   return (
     <>
@@ -60,11 +75,23 @@ export function Header() {
               </button>
             </SignedOut>
             <SignedIn>
-            <UserButton/>
+            <UserButton appearance={{
+                elements:{
+                    avatarBox: {
+                        width: 50,
+                        height: 50,
+                    },
+                },
+            }}>
+            </UserButton>
             </SignedIn>
           </div>
 
-            {showSignIn && <div className="fixed inset-0 flex items-center justify-center z-9999 bg-black/70">
+            {showSignIn && 
+            <div className="fixed inset-0 flex items-center justify-center z-9999 bg-black/70"
+            onClick={handleOverlayClick}
+            >
+
                 <SignIn/>
             </div>}
 
@@ -82,7 +109,7 @@ export function Header() {
           </div>
 
           {isOpen && (
-            <div className="lg:hidden px-2 pt-2 pb-3 space-y-1">
+            <div className="lg:hidden px-2 pt-2 pb-3 space-y-1 flex items-center flex-col">
               {navigation.map((item) => {
                 return (
                   <Link
@@ -101,6 +128,31 @@ export function Header() {
                   </Link>
                 );
               })}
+
+            <SignedOut>
+              <button onClick={() => setShowSignIn(true)} className="text-gray-600 text-2xl py-2.5 px-4.5 rounded hover:text-blue-600 hover:bg-blue-50 transition-colors duration-200">
+                Регистрация
+              </button>
+            </SignedOut>
+
+            
+            <SignedIn>
+            <UserButton appearance={{
+                elements:{
+                    avatarBox: {
+                        width: 50,
+                        height: 50,
+                    },
+                    userButtonPopoverCard: 'max-md:ml-40 max-sm:ml-5',
+                },
+            }}>
+                <UserButton.MenuItems>
+
+                </UserButton.MenuItems>
+            </UserButton>
+            </SignedIn>
+            
+
             </div>
           )}
         </header>

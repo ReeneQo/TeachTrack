@@ -12,7 +12,6 @@ const supabaseClient = async(supabaseAccessToken: any) => {
             },
         },
     });
-
     return supabase
 };
 

@@ -15,8 +15,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Index from "./components/pages/index";
 import Lesson from "./components/pages/Lesson";
 import NotFound from "./components/pages/NotFound";
-
-
+import { SignInPage } from "./components/pages/SignInPage";
+import { BuyCourse } from "./components/pages/buy";
 function AnimatedRoutes() {
   
 
@@ -28,6 +28,8 @@ function AnimatedRoutes() {
           <Route path="/lesson/:id" element={<Lesson />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/about" element={<About />} />
+          <Route path="/signInPage" element={<SignInPage />} />
+          <Route path="/buy" element={<BuyCourse />} />
         </Routes>
       </BrowserRouter>
     </AnimatePresence>

@@ -2,6 +2,7 @@ export interface Lesson {
     id: number;
     title: string;
     description: string;
+    isLocked: boolean;
     content: string;
     duration: string;
     category: "HTML/CSS" | "JavaScript";
@@ -13,6 +14,7 @@ export interface Lesson {
       title: "Введение в HTML",
       description: "Основы HTML разметки",
       content: "HTML - основной язык разметки веб-страниц. В этом уроке вы узнаете о базовой структуре HTML документа.",
+      isLocked: false,
       duration: "20 минут",
       category: "HTML/CSS"
     },
@@ -21,6 +23,7 @@ export interface Lesson {
       title: "Структура HTML документа",
       description: "Изучение основных тегов HTML",
       content: "Изучение базовой структуры HTML документа и основных тегов.",
+      isLocked: false,
       duration: "25 минут",
       category: "HTML/CSS"
     },
@@ -29,6 +32,7 @@ export interface Lesson {
       title: "Работа с текстом в HTML",
       description: "Текстовые элементы и форматирование",
       content: "Изучение текстовых тегов и их применение.",
+      isLocked: false,
       duration: "30 минут",
       category: "HTML/CSS"
     },
@@ -37,6 +41,7 @@ export interface Lesson {
       title: "Списки и таблицы",
       description: "Создание списков и таблиц в HTML",
       content: "Работа со списками и таблицами в HTML.",
+      isLocked: true,
       duration: "35 минут",
       category: "HTML/CSS"
     },
@@ -46,7 +51,8 @@ export interface Lesson {
       description: "Работа с ссылками и изображениями",
       content: "Добавление ссылок и изображений на веб-страницу.",
       duration: "30 минут",
-      category: "HTML/CSS"
+      category: "HTML/CSS",
+      isLocked: true,
     },
     {
       id: 6,
@@ -54,7 +60,8 @@ export interface Lesson {
       description: "Создание и работа с формами",
       content: "Изучение элементов форм и их использование.",
       duration: "40 минут",
-      category: "HTML/CSS"
+      category: "HTML/CSS",
+      isLocked: true,
     },
     {
       id: 7,
@@ -62,7 +69,8 @@ export interface Lesson {
       description: "Основы CSS стилей",
       content: "Базовые принципы работы с CSS.",
       duration: "25 минут",
-      category: "HTML/CSS"
+      category: "HTML/CSS",
+      isLocked: true,
     },
     {
       id: 8,
@@ -70,7 +78,8 @@ export interface Lesson {
       description: "Изучение селекторов CSS",
       content: "Работа с различными типами селекторов в CSS.",
       duration: "35 минут",
-      category: "HTML/CSS"
+      category: "HTML/CSS",
+      isLocked: true,
     },
     {
       id: 9,
@@ -78,7 +87,8 @@ export interface Lesson {
       description: "Работа с цветами и фонами в CSS",
       content: "Изучение свойств цвета и фона в CSS.",
       duration: "30 минут",
-      category: "HTML/CSS"
+      category: "HTML/CSS",
+      isLocked: true,
     },
     {
       id: 10,
@@ -86,6 +96,7 @@ export interface Lesson {
       description: "Изучение блочной модели",
       content: "Понимание блочной модели CSS и её свойств.",
       duration: "40 минут",
+      isLocked: true,
       category: "HTML/CSS"
     },
     {
@@ -94,6 +105,7 @@ export interface Lesson {
       description: "Работа с позиционированием в CSS",
       content: "Изучение различных способов позиционирования элементов.",
       duration: "45 минут",
+      isLocked: true,
       category: "HTML/CSS"
     },
     {
@@ -102,6 +114,7 @@ export interface Lesson {
       description: "Изучение Flexbox layout",
       content: "Работа с Flexbox для создания гибких макетов.",
       duration: "50 минут",
+      isLocked: true,
       category: "HTML/CSS"
     },
     {
@@ -110,6 +123,7 @@ export interface Lesson {
       description: "Изучение Grid layout",
       content: "Создание сеточных макетов с помощью Grid.",
       duration: "50 минут",
+      isLocked: true,
       category: "HTML/CSS"
     },
     {
@@ -118,6 +132,7 @@ export interface Lesson {
       description: "Основы адаптивного дизайна",
       content: "Создание адаптивных веб-страниц.",
       duration: "45 минут",
+      isLocked: true,
       category: "HTML/CSS"
     },
     {
@@ -126,6 +141,7 @@ export interface Lesson {
       description: "Работа с анимациями",
       content: "Создание анимаций с помощью CSS.",
       duration: "40 минут",
+      isLocked: true,
       category: "HTML/CSS"
     },
     {
@@ -134,6 +150,7 @@ export interface Lesson {
       description: "CSS трансформации и переходы",
       content: "Изучение трансформаций и переходов в CSS.",
       duration: "35 минут",
+      isLocked: true,
       category: "HTML/CSS"
     },
     {
@@ -142,6 +159,7 @@ export interface Lesson {
       description: "Работа с псевдоклассами",
       content: "Использование псевдоклассов и псевдоэлементов в CSS.",
       duration: "40 минут",
+      isLocked: true,
       category: "HTML/CSS"
     },
     {
@@ -150,6 +168,7 @@ export interface Lesson {
       description: "Работа с CSS переменными",
       content: "Использование CSS переменных для гибкой стилизации.",
       duration: "30 минут",
+      isLocked: true,
       category: "HTML/CSS"
     },
   
@@ -159,6 +178,7 @@ export interface Lesson {
       description: "Изучение SASS/SCSS",
       content: "Использование препроцессоров CSS для улучшения процесса разработки.",
       duration: "45 минут",
+      isLocked: true,
       category: "HTML/CSS"
     },
     {
@@ -167,6 +187,7 @@ export interface Lesson {
       description: "BEM и другие методологии",
       content: "Изучение методологий написания CSS кода.",
       duration: "40 минут",
+      isLocked: true,
       category: "HTML/CSS"
     },
     {
@@ -175,6 +196,7 @@ export interface Lesson {
       description: "Оптимизация стилей",
       content: "Методы оптимизации CSS кода для улучшения производительности.",
       duration: "35 минут",
+      isLocked: true,
       category: "HTML/CSS"
     },
     {
@@ -183,6 +205,7 @@ export interface Lesson {
       description: "Пользовательские свойства",
       content: "Работа с пользовательскими свойствами в CSS.",
       duration: "30 минут",
+      isLocked: true,
       category: "HTML/CSS"
     },
     {
@@ -191,6 +214,7 @@ export interface Lesson {
       description: "Продвинутые техники Grid",
       content: "Углубленное изучение CSS Grid Layout.",
       duration: "50 минут",
+      isLocked: true,
       category: "HTML/CSS"
     },
     {
@@ -199,6 +223,7 @@ export interface Lesson {
       description: "Продвинутые техники Flexbox",
       content: "Углубленное изучение CSS Flexbox.",
       duration: "45 минут",
+      isLocked: true,
       category: "HTML/CSS"
     },
     {
@@ -207,6 +232,7 @@ export interface Lesson {
       description: "Адаптивные изображения",
       content: "Работа с адаптивными изображениями в веб-разработке.",
       duration: "40 минут",
+      isLocked: true,
       category: "HTML/CSS"
     },
     {
@@ -215,6 +241,7 @@ export interface Lesson {
       description: "Продвинутые анимации",
       content: "Создание сложных анимаций с помощью CSS.",
       duration: "45 минут",
+      isLocked: true,
       category: "HTML/CSS"
     },
     {
@@ -223,6 +250,7 @@ export interface Lesson {
       description: "Архитектура CSS",
       content: "Построение масштабируемой архитектуры CSS.",
       duration: "50 минут",
+      isLocked: true,
       category: "HTML/CSS"
     },
     {
@@ -231,6 +259,7 @@ export interface Lesson {
       description: "Производительность CSS",
       content: "Оптимизация производительности CSS.",
       duration: "40 минут",
+      isLocked: true,
       category: "HTML/CSS"
     },
     {
@@ -239,6 +268,7 @@ export interface Lesson {
       description: "Основы JavaScript",
       content: "Базовые концепции JavaScript и его роль в веб-разработке.",
       duration: "45 минут",
+      isLocked: false,
       category: "JavaScript"
     },
     {
@@ -247,6 +277,7 @@ export interface Lesson {
       description: "Работа с переменными в JavaScript",
       content: "Изучение переменных и типов данных в JavaScript.",
       duration: "40 минут",
+      isLocked: false,
       category: "JavaScript"
     },
     {
@@ -255,6 +286,7 @@ export interface Lesson {
       description: "Условные конструкции",
       content: "Работа с операторами и условными конструкциями.",
       duration: "35 минут",
+      isLocked: false,
       category: "JavaScript"
     },
     {
@@ -263,6 +295,7 @@ export interface Lesson {
       description: "Углубленное изучение функций",
       content: "Создание и использование функций в JavaScript.",
       duration: "45 минут",
+      isLocked: true,
       category: "JavaScript"
     },
     {
@@ -271,6 +304,7 @@ export interface Lesson {
       description: "Работа с объектами и массивами",
       content: "Изучение объектов и массивов в JavaScript.",
       duration: "50 минут",
+      isLocked: true,
       category: "JavaScript"
     },
     {
@@ -279,6 +313,7 @@ export interface Lesson {
       description: "Работа с DOM",
       content: "Манипуляции с DOM элементами в JavaScript.",
       duration: "45 минут",
+      isLocked: true,
       category: "JavaScript"
     },
     {
@@ -287,6 +322,7 @@ export interface Lesson {
       description: "Обработка событий",
       content: "Работа с событиями в JavaScript.",
       duration: "40 минут",
+      isLocked: true,
       category: "JavaScript"
     },
     {
@@ -295,6 +331,7 @@ export interface Lesson {
       description: "Промисы и async/await",
       content: "Изучение асинхронного программирования в JavaScript.",
       duration: "55 минут",
+      isLocked: true,
       category: "JavaScript"
     },
     {
@@ -303,6 +340,7 @@ export interface Lesson {
       description: "Современный JavaScript",
       content: "Изучение современных возможностей JavaScript.",
       duration: "50 минут",
+      isLocked: true,
       category: "JavaScript"
     },
     {
@@ -311,6 +349,7 @@ export interface Lesson {
       description: "Работа с модулями",
       content: "Изучение модульной системы JavaScript.",
       duration: "45 минут",
+      isLocked: true,
       category: "JavaScript"
     }
   ];

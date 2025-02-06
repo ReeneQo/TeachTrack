@@ -5,14 +5,23 @@ import { LessonCard } from "../elements/LessonCard";
 import { ProgressBar } from "../elements/ProgressBar";
 import { useNavigate } from "react-router-dom";
 import { Header } from "../navigation/Navigation";
-
+import { SignIn, useAuth } from "@clerk/clerk-react";
+import { useState } from "react";
 
 export default function Index() {
   const { progress } = useProgress();
   const navigate = useNavigate();
-
+  const {isSignedIn} = useAuth()
   const htmlCssLessons = lessons.filter(lesson => lesson.category === "HTML/CSS");
   const jsLessons = lessons.filter(lesson => lesson.category === "JavaScript");
+  const [isSignInModalOpen, setIsSignInModalOpen] = useState(false)
+
+
+  const handleOverlayClick=(e: any)=>{
+    if (e.target === e.currentTarget) {
+      setIsSignInModalOpen(false)
+    }
+  }
 
   return (
     <>
@@ -36,31 +45,56 @@ export default function Index() {
             </p>
           </div>
         </motion.div>
+        
         <div className="mb-12">
           <h2 className="text-2xl font-bold mb-6">HTML и CSS</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {htmlCssLessons.map((lesson) => (
-              <LessonCard
+            {htmlCssLessons.map((lesson, index) => {
+            const isLocked = index >=3 && !isSignedIn;
+              return (
+            <LessonCard
                 key={lesson.id}
                 lesson={lesson}
                 isCompleted={progress.completedLessons.includes(lesson.id)}
-                onClick={() => navigate(`/lesson/${lesson.id}`)}
-              />
-            ))}
+                onClick={() => {
+                  if (isLocked) {
+                    setIsSignInModalOpen(true)
+                  } else {
+                    navigate(`/lesson/${lesson.id}`);
+                  }
+                }}
+                isLocked={isLocked}    
+                />
+         )})}
           </div>
+          
+          {isSignInModalOpen && (
+          <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/70" onClick={handleOverlayClick}>
+            <SignIn/>
+          </div>
+      )}
         </div>
 
-        <div>
+        <div className="mb-12">
           <h2 className="text-2xl font-bold mb-6">JavaScript</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {jsLessons.map((lesson) => (
-              <LessonCard
+            {jsLessons.map((lesson) => {
+            const isLocked = !isSignedIn;
+              return (
+            <LessonCard
                 key={lesson.id}
                 lesson={lesson}
                 isCompleted={progress.completedLessons.includes(lesson.id)}
-                onClick={() => navigate(`/lesson/${lesson.id}`)}
-              />
-            ))}
+                onClick={() => {
+                  if (isLocked) {
+                    setIsSignInModalOpen(true)
+                  } else {
+                    navigate(`/lesson/${lesson.id}`);
+                  }
+                }}
+                isLocked={isLocked}    
+                />
+         )})}
           </div>
         </div>
       </div>

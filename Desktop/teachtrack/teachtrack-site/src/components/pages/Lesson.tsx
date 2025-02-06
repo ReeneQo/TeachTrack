@@ -33,8 +33,7 @@ export default function Lesson() {
         <LessonContent
           lesson={lesson}
           onComplete={() => completeLesson(lesson.id)}
-          isCompleted={isCompleted}
-        />
+          isCompleted={isCompleted}/>
       </div>
     </div>
   );

@@ -1,10 +1,9 @@
-import { Webhook } from "lucide-react";
+import { Wallet, Webhook } from "lucide-react";
 import { useState, ReactNode, useEffect } from "react";
 import { Link, useLocation, useSearchParams } from "react-router-dom";
 import { Menu, X, Home, Users } from "lucide-react";
 import PageTranstion from "../PageTransition/PageTransition";
 import { SignedIn, SignedOut, SignIn, UserButton } from "@clerk/clerk-react";
-
 export function Header() {
   const [showSignIn, setShowSignIn] = useState(false)
   const [isOpen, setIsOpen] = useState(false);
@@ -83,15 +82,19 @@ export function Header() {
                     },
                 },
             }}>
+              <UserButton.MenuItems >
+                <UserButton.Link
+                label="Купить курс"
+                labelIcon={<Wallet size={15}/>}
+                href="/buy"/>
+              </UserButton.MenuItems>
             </UserButton>
             </SignedIn>
           </div>
 
             {showSignIn && 
             <div className="fixed inset-0 flex items-center justify-center z-9999 bg-black/70"
-            onClick={handleOverlayClick}
-            >
-
+            onClick={handleOverlayClick}>
                 <SignIn/>
             </div>}
 
@@ -134,8 +137,6 @@ export function Header() {
                 Регистрация
               </button>
             </SignedOut>
-
-            
             <SignedIn>
             <UserButton appearance={{
                 elements:{
